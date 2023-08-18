@@ -1,1 +1,3 @@
-# django-react-pegasus_edu
+# MOVIE_REVIEWS
+
+django project
