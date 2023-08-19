@@ -28,6 +28,7 @@ urlpatterns = [
 ## Connecting to MySQL Database
 
 first, create database `moviereviews` using `xampp/phpMyAdmin`
+
 second, apply some changes
 
 ```
@@ -54,3 +55,53 @@ pip install mysqlclient
 ```
 
 third, `py manage.py makemigrations`, `py manage.py migrate`
+
+## Add base.html
+
+Alter `settings.py`
+
+> TEMPLATES = [
+> {
+> 'BACKEND': 'django.template.backends.django.DjangoTemplates',
+
+        `'DIRS': [os.path.join(BASE_DIR, 'moviereviews/templates')],`
+
+>        'APP_DIRS': True,
+>        'OPTIONS': {
+>            'context_processors': [
+>                'django.template.context_processors.debug',
+>                'django.template.context_processors.request',
+>                'django.contrib.auth.context_processors.auth',
+>                'django.contrib.messages.context_processors.messages',
+>            ],
+>        },
+>
+> },
+> ]
+
+## create `base.html`
+
+```
+<!DOCTYPE html>
+<html>
+  <head>
+  ...
+  </head>
+
+  <body>
+  ...
+  {% block content %} {% endblock content %}
+  ...
+  </body>
+</html>
+
+```
+
+To use this `base.html`,
+
+```
+{% extends 'base.html' %}
+{% block content %}
+...
+{% endblock content %}
+```
