@@ -129,3 +129,5 @@ STATICFILES_DIRS = [
 
 page.html:
 add this `{% load static %}` in corresponding position
+
+## Implementing links to individual pages
