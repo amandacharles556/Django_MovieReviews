@@ -131,3 +131,19 @@ page.html:
 add this `{% load static %}` in corresponding position
 
 ## Implementing links to individual pages
+
+## Implementing User Signup and Login
+
+### Creating a signup form
+
+### Creating a user
+
+### Handling user creation errors
+
+### Customizing UserCreationForm
+
+### Showing whether a user is logged in
+
+### Implementing the logout functionality
+
+### Implementing the login functionality
