@@ -60,24 +60,23 @@ third, `py manage.py makemigrations`, `py manage.py migrate`
 
 Alter `settings.py`
 
-> TEMPLATES = [
-> {
-> 'BACKEND': 'django.template.backends.django.DjangoTemplates',
-
-        `'DIRS': [os.path.join(BASE_DIR, 'moviereviews/templates')],`
-
->        'APP_DIRS': True,
->        'OPTIONS': {
->            'context_processors': [
->                'django.template.context_processors.debug',
->                'django.template.context_processors.request',
->                'django.contrib.auth.context_processors.auth',
->                'django.contrib.messages.context_processors.messages',
->            ],
->        },
->
-> },
-> ]
+```
+TEMPLATES = [
+  {
+    'BACKEND': 'django.template.backends.django.DjangoTemplates',
+    'DIRS': [os.path.join(BASE_DIR, 'moviereviews/templates')],
+    'APP_DIRS': True,
+    'OPTIONS': {
+      'context_processors': [
+        'django.template.context_processors.debug',
+        'django.template.context_processors.request',
+        'django.contrib.auth.context_processors.auth',
+        'django.contrib.messages.context_processors.messages',
+      ],
+    },
+  },
+]
+```
 
 ## create `base.html`
 
@@ -105,3 +104,28 @@ To use this `base.html`,
 ...
 {% endblock content %}
 ```
+
+## Serving static files
+
+settings.py:
+
+```
+…
+# Static files (CSS, JavaScript, Images)
+# https://docs.djangoproject.com/en/4.0/howto/static-files/
+STATIC_URL = 'static/'
+…
+```
+
+add this,
+
+```
+...
+STATICFILES_DIRS = [
+  BASE_DIR/'.../static/',
+]
+...
+```
+
+page.html:
+add this `{% load static %}` in corresponding position
