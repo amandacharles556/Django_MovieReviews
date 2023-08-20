@@ -130,20 +130,60 @@ STATICFILES_DIRS = [
 page.html:
 add this `{% load static %}` in corresponding position
 
-## Implementing links to individual pages
-
 ## Implementing User Signup and Login
 
 ### Creating a signup form
 
+```
+  from django.contrib.auth.forms import UserCreationForm
+```
+
 ### Creating a user
+
+```
+  from django.contrib.auth.models import User
+  from django.contrib.auth import login
+```
 
 ### Handling user creation errors
 
+```
+  from django.db import IntegrityError
+```
+
 ### Customizing UserCreationForm
+
+```
+  class UserCreateForm(UserCreationForm):
+    def __init__(self, *args, **kwargs):
+      super(UserCreateForm, self).__init__(*args, **kwargs)
+```
 
 ### Showing whether a user is logged in
 
+```
+  {% if user.is_authenticated %}
+    <a class="nav-link" href="#">
+      Logout ({{ user.username }})
+    </a>
+  {% else %}
+    ...
+  {% endif %}
+```
+
 ### Implementing the logout functionality
 
+```
+  from django.contrib.auth import logout
+  def logoutaccount(request):
+    logout(request)
+    return redirect('home')
+```
+
 ### Implementing the login functionality
+
+```
+  from django.contrib.auth.forms import AuthenticationForm
+  from django.contrib.auth import authenticate
+
+```
