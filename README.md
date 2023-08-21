@@ -185,5 +185,23 @@ add this `{% load static %}` in corresponding position
 ```
   from django.contrib.auth.forms import AuthenticationForm
   from django.contrib.auth import authenticate
+```
 
+# Letting Users Create, Read, Update, and Delete Movie Reviews
+
+### Creating a review
+
+### Listing reviews
+
+### Updating a review
+
+### Deleting a review
+
+### Implementing authorization
+
+```
+from django.contrib.auth.decorators import login_required
+…
+@login_required
+def func():
 ```
